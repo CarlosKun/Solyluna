@@ -20,6 +20,7 @@ class CreatePropertiesTable extends Migration {
 			$table->boolean('status');
 			$table->integer('num_bedrooms');
 			$table->mediumText('description');
+			$table->string('image');
 
 			$table->integer('service_id')->unsigned();
 			$table->foreign('service_id')

@@ -2,6 +2,7 @@
 
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Input;
 use solyluna\Bedroom;
 use solyluna\Http\Controllers\Controller;
 
@@ -17,7 +18,7 @@ class BedRoomController extends Controller {
 	 */
 	public function index($id)
 	{
-		$properties = Bedroom::select('id', 'bedroom_asigned', 'status', 'beds', 'size_metrics', 'property_id')
+		$properties = Bedroom::select('id', 'bedroom_asigned', 'status', 'beds', 'size_metrics', 'description', 'image', 'property_id')
 			->with('Property')
 			->where('property_id', '=', $id)
 			->get();
@@ -47,9 +48,21 @@ class BedRoomController extends Controller {
 	 */
 	public function store(CreateBedRoomRequest $request)
 	{
-		$bedroom = new Bedroom($request->all());
-		$bedroom->save();
-		return redirect()->route('admin.properties.index');
+		$file = Input::file('image');
+		if(Input::hasFile('image'))
+		{
+			$fileName = $file->getClientOriginalName();
+			$path = public_path().'\uploads\\';
+
+			$bedroom = new Bedroom($request->all());
+			$bedroom->image = $fileName;
+
+			if($file->move($path, $fileName))
+			{
+				$bedroom->save();
+				return redirect()->route('admin.properties.index');
+			}
+		}
 	}
 
 	/**

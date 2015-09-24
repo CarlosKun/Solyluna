@@ -4,7 +4,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Bedroom extends Model {
 
-    protected $fillable = ['bedroom_asigned', 'status', 'size_metrics', 'size_decimal', 'beds', 'property_id'];
+    protected $fillable = ['bedroom_asigned', 'status', 'size_metrics', 'size_decimal', 'beds', 'description', 'image', 'property_id'];
 
     public function property()
     {

@@ -19,6 +19,8 @@ class CreateBedroomsTable extends Migration {
 			$table->boolean('status');
 			$table->string('size_metrics');
 			$table->integer('beds');
+			$table->mediumText('description');
+			$table->string('image');
 			$table->softDeletes();
 			$table->integer('property_id')->unsigned();
 			$table->foreign('property_id')

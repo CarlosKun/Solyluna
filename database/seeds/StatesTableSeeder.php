@@ -14,8 +14,8 @@ class StatesTableSeeder extends Seeder
 
         for ($i=0; $i < 50; $i++) {
 
-            \DB::table('countries')->insert(array(
-                'country' => $faker->unique()->state,
+            \DB::table('states')->insert(array(
+                'state' => $faker->unique()->state,
                 'code' => $faker->postcode,
             ));
         }

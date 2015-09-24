@@ -26,6 +26,8 @@ class CreateBedRoomRequest extends Request {
 			'status' => 'required',
 			'size_metrics' => 'required',
 			'beds' => 'required',
+			'description' => 'required',
+			'image' => 'required',
 			'property_id' => 'required'
 		];
 	}

@@ -40,6 +40,10 @@
         {!! Form::select('user_id', (['' => 'select a Admin']+ $users), null, ['class' => 'form-control']) !!}
     </div>
     <div class="form-group">
+        {!! Form::label('image', 'image') !!}
+        {!! Form::file('image', ['class' => 'form-control']) !!}
+    </div>
+    <div class="form-group">
         {!! Form::label('description', 'Description') !!}
         <textarea name="description" class="form-control" rows="3"></textarea>
     </div>

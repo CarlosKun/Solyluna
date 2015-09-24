@@ -1,6 +1,7 @@
 <?php namespace solyluna\Http\Controllers\Property;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Input;
 use Illuminate\Routing\Redirector;
 use Illuminate\Support\Facades\Session;
 use solyluna\Bedroom;
@@ -53,9 +54,20 @@ class PropertiesController extends Controller {
 	 */
 	public function store(CreatePropertyRequest $request, Redirector $redirect)
 	{
-		$properties = new Property($request->all());
-		$properties->save();
-		return $redirect->route('admin.properties.index');
+		$file = Input::file('image');
+		if(Input::hasFile('image'))
+		{
+			$fileName = $file->getClientOriginalName();
+			$path = public_path().'\uploads\\';
+
+			$properties = new Property($request->all());
+			$properties->image = $fileName;
+			if($file->move($path, $fileName))
+			{
+				$properties->save();
+				return $redirect->route('admin.properties.index');
+			}
+		}
 	}
 
 	/**

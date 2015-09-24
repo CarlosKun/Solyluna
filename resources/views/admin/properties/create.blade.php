@@ -9,7 +9,7 @@
 
                     <div class="panel-body">
                         @include('admin.users.partial.messages')
-                        {!! Form::open(['route' => 'admin.properties.store', 'method' => 'POST', 'class' => '' ]) !!}
+                        {!! Form::open(['route' => 'admin.properties.store', 'method' => 'POST' , 'files' => 'true', 'class' => '' ]) !!}
                         @include('admin.properties.partial.form')
                         <button type="submit" class="btn btn-success">Submit</button>
                         {!! Form::close() !!}

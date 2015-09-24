@@ -5,7 +5,7 @@
             @foreach($properties as $house)
             <div class="col-sm-6 col-md-4">
                 <div class="thumbnail">
-                    <img src="/img/casaconchaschinas.jpg" alt="...">
+                    <img src="/uploads/{{ $house->image }}" alt="..." width="" height="">
                     <div class="caption">
                         <h3>{{ $house->bedroom_asigned }}</h3>
                         @if($house->status == 1)
@@ -15,6 +15,7 @@
                         @endif
                         <p>Beds: {{ $house->beds }}</p>
                         <p>size: {{ $house->size_metrics }}</p>
+                        <p>{{ $house->description }}</p>
                         <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
                     </div>
                 </div>
