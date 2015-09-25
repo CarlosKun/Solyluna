@@ -29,6 +29,7 @@ class PropertiesController extends Controller {
 			->get();
 		$properties = Property::paginate();
 		return view('admin.properties.index',compact('properties','service','state', 'city', 'property_type', 'user'));
+
 	}
 
 	/**
