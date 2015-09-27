@@ -129,3 +129,7 @@ Route::get('formulario', [
 	Route::group(['prefix' => 'admin', 'namespace' => 'Bedroom'], function (){
 		Route::resource('properties.bedrooms', 'BedRoomController');
 	});
+
+	Route::group(['prefix' => 'admin', 'namespace' => 'Administrator'], function (){
+		Route::resource('control', 'AdminController');
+	});

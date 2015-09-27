@@ -18,7 +18,7 @@ class AdminTableSeeder extends Seeder
             'email' 	 => 'ing_carlosagaton@hotmail.com',
             'telephone' => '3222255735',
             'cellphone' => '3221008052',
-            'role' => 'super admin',
+            'role' => 'superadmin',
             'password' 	 => \Hash::make('secret')
         ));
     }

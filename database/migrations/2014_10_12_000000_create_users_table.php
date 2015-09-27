@@ -21,7 +21,7 @@ class CreateUsersTable extends Migration {
 			$table->string('email')->unique();
 			$table->string('telephone')->unique();
 			$table->string('cellphone')->unique();
-			$table->enum('role',['admin', 'superadmin', 'ContactPerson', 'user']);
+			$table->enum('role',['admin', 'superadmin', 'contactPerson', 'user', 'realstate']);
 			$table->string('password', 60);
 			$table->softDeletes();
 			$table->rememberToken();

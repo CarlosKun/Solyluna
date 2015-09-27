@@ -64,6 +64,8 @@ class CreatePropertiesTable extends Migration {
 				->onDelete('cascade')
 				->onUpdate('cascade');
 
+			$table->integer('realstate_id');
+
 			$table->softDeletes();
 			$table->timestamps();
 

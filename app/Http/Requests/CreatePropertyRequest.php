@@ -33,7 +33,7 @@ class CreatePropertyRequest extends Request {
 			'city_id' => 'required',
 			'image' => 'required',
 			'property_type_id' => 'required',
-			'user_id' => 'required'
+			'user_id' => 'required',
 		];
 	}
 

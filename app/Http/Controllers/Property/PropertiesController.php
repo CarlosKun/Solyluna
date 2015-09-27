@@ -1,6 +1,7 @@
 <?php namespace solyluna\Http\Controllers\Property;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Routing\Redirector;
 use Illuminate\Support\Facades\Session;
@@ -13,6 +14,7 @@ use solyluna\Http\Requests\CreatePropertyRequest;
 use solyluna\Http\Requests\CreateUserRequest;
 use solyluna\Http\Requests\EditPropertyRequest;
 use solyluna\Property;
+use solyluna\User;
 
 class PropertiesController extends Controller {
 
@@ -39,13 +41,15 @@ class PropertiesController extends Controller {
 	 */
 	public function create()
 	{
+		$id_realstate = Auth::user()->id;
+
 		$countries = \DB::table('countries')->lists('country', 'id');
 		$states = \DB::table('states')->lists('state', 'id');
 		$cities= \DB::table('cities')->lists('city', 'id');
 		$services= \DB::table('services')->lists('service', 'id');
 		$property_types= \DB::table('property_types')->lists('property_type', 'id');
 		$users= \DB::table('users')->lists('full_name', 'id');
-		return view('admin.properties.create',compact('countries', 'states', 'cities','services', 'property_types','users'));
+		return view('admin.properties.create',compact('countries', 'states', 'cities','services', 'property_types','users', 'id_realstate'));
 	}
 
 	/**
@@ -55,6 +59,7 @@ class PropertiesController extends Controller {
 	 */
 	public function store(CreatePropertyRequest $request, Redirector $redirect)
 	{
+
 		$file = Input::file('image');
 		if(Input::hasFile('image'))
 		{
@@ -65,8 +70,9 @@ class PropertiesController extends Controller {
 			$properties->image = $fileName;
 			if($file->move($path, $fileName))
 			{
+				//return dd($properties);
 				$properties->save();
-				return $redirect->route('admin.properties.index');
+				return $redirect->route('admin.control.index');
 			}
 		}
 	}
@@ -77,9 +83,16 @@ class PropertiesController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function show($id)
+	public function show()
 	{
-
+		$user_id = Auth::user()->id;
+		$user_role = User::findOrfail($user_id);
+		$properties = Property::select('id', 'name', 'image', 'status', 'num_bedrooms', 'description', 'country_id', 'service_id', 'state_id', 'city_id', 'property_type_id', 'user_id')
+			->with('country')->with('service')->with('state')->with('city')->with('property_type')->with('user')
+			->orderBy('name', 'ASC')
+			->get();
+		//return dd($properties);
+		return view('admin.properties.show',compact('properties','service','state', 'city', 'property_type', 'user', 'user_role'));
 	}
 
 	/**

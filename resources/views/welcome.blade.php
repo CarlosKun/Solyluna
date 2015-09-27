@@ -608,7 +608,7 @@
             <a class="black-text text-lighten-3" href="#!"> Inversionistas |</a>
             <a class="black-text text-lighten-3" href="#!"> Terms |</a>
             <a class="black-text text-lighten-3" href="#!"> Privacy |</a>
-            <a class="black-text text-lighten-3" href="#!"> ADM |</a>
+            <a class="black-text text-lighten-3" href="{{ url('/auth/login') }}"> ADM |</a>
             </div>
           </div>
         </footer>

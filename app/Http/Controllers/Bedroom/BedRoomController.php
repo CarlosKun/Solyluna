@@ -2,12 +2,14 @@
 
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Input;
 use solyluna\Bedroom;
 use solyluna\Http\Controllers\Controller;
 
 use solyluna\Http\Requests\CreateBedRoomRequest;
 use solyluna\Property;
+use solyluna\User;
 
 class BedRoomController extends Controller {
 
@@ -37,8 +39,10 @@ class BedRoomController extends Controller {
 	 */
 	public function create($id)
 	{
+		$user_id = Auth::user()->id;
+		$user_role = User::findOrfail($user_id);
 		$bedroom = Property::findOrFail($id);
-		return view('admin.properties.bedrooms.index',compact('bedroom'));
+		return view('admin.properties.bedrooms.index',compact('bedroom','user_role'));
 	}
 
 	/**
