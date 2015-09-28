@@ -133,3 +133,6 @@ Route::get('formulario', [
 	Route::group(['prefix' => 'admin', 'namespace' => 'Administrator'], function (){
 		Route::resource('control', 'AdminController');
 	});
+Route::group(['prefix' => 'admin', 'namespace' => 'ameneties'], function (){
+	Route::resource('ameneties', 'AmenetiesController');
+});

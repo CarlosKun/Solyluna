@@ -1,12 +1,14 @@
 <!doctype html>
-<html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Sol&Luna</title>
     <!--Import materialize.css-->
-    <link rel="stylesheet" href="/css/materialize.min.css" media="screen,projection">
-    <link rel="stylesheet" href="/css/mystyle.css" media="screen,projection">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="{{ asset('/css/materialize.css') }}" rel="stylesheet">
+    <link href="{{ asset('/css/materialize.min.css') }}" rel="stylesheet">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!--Let browser know website is optimized for mobile-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <style>
         header, main, footer {
             padding-left: 240px;
@@ -25,7 +27,7 @@
 <header>
     <ul id="slide-out" class="side-nav fixed grey lighten-5">
          <div class="section">
-             <center><a href="#" class="brand-logo"><img src="/images/LogoSolyLuna.png" class="responsive-img" width="120px" alt=""></a></center>
+             <center><a href="#" class="brand-logo"><img src="{{ asset('/images/LogoSolyLuna.png') }}" class="responsive-img" width="120px" alt=""></a></center>
          </div>
          <br><br><br><br>
          <div class="divider"></div>
@@ -61,7 +63,7 @@
             <li><a class="dropdown-button" href="#!" data-activates="dropdown6">Edit amenities<i class="material-icons right">arrow_drop_down</i></a></li>
             <ul id="dropdown6" class="dropdown-content">
                 <li class="divider"></li>
-                <li><a href="#!">Edit</a></li>
+                 <li><a href="{{ route('admin.ameneties.show') }}">Edit</a></li>
             </ul>
         @endif
     </ul>
@@ -92,7 +94,9 @@
 </footer>
 
 <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-<script type="text/javascript" src="/js/materialize.js"></script>
+
+<script type="text/javascript" src="{{ asset('/js/materialize.js') }}"></script>
+
 @yield('scripts')
 <script>
     $(".button-collapse").sideNav();

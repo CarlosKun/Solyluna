@@ -77,8 +77,8 @@
 
     <title>Sol&Luna</title>
   <!--Import materialize.css-->
-<link rel="stylesheet" href="/css/materialize.min.css" media="screen,projection">
-<link rel="stylesheet" href="/css/mystyle.css" media="screen,projection">
+<link rel="stylesheet" href="css/materialize.min.css" media="screen,projection">
+<link rel="stylesheet" href="css/mystyle.css" media="screen,projection">
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <!--Let browser know website is optimized for mobile-->
       <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -119,7 +119,7 @@
    <div class="navbar-fixed ">
     <nav>
       <div class="nav-wrapper blue darken-3">
-        <a href="welcome" class="brand-logo"><img src="/images/LogoSolyLuna.png" class="responsive-img" width="40%" alt=""></a>
+        <a href="welcome" class="brand-logo"><img src="images/LogoSolyLuna.png" class="responsive-img" width="40%" alt=""></a>
         <ul id="" class="right hide-on-med-and-down">
         <li><a href="contacto">Contact Us<i class="material-icons left">call</i></a></li>
         <li><a href="welcome">Home</a></li>
@@ -220,7 +220,7 @@
 
 
   <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-  <script type="text/javascript" src="/js/materialize.js"></script>
+  <script type="text/javascript" src="js/materialize.js"></script>
   <script>
     $(function()
     {
