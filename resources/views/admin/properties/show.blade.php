@@ -10,7 +10,7 @@
         <div class="col s12 m4 l3">
             <div class="card">
                 <div class="card-image">
-                    <img src="/uploads/{{ $property->image }}" height="180px">
+                    <img src="{{ asset('uploads') }}/{{ $property->image }}" height="180px">
                     <span class="card-title">{{ $property->name }}</span>
                 </div>
                 <div class="card-content">

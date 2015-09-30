@@ -7,12 +7,14 @@ use Illuminate\Routing\Redirector;
 use Illuminate\Support\Facades\Session;
 use solyluna\Bedroom;
 use solyluna\Country;
+use solyluna\File;
 use solyluna\Http\Requests;
 use solyluna\Http\Controllers\Controller;
 
 use solyluna\Http\Requests\CreatePropertyRequest;
 use solyluna\Http\Requests\CreateUserRequest;
 use solyluna\Http\Requests\EditPropertyRequest;
+use solyluna\Http\Requests\FileRequest;
 use solyluna\Property;
 use solyluna\User;
 
@@ -57,22 +59,24 @@ class AmenetiesController extends Controller {
      *
      * @return Response
      */
-    public function store(CreatePropertyRequest $request, Redirector $redirect)
+    public function store( FileRequest  $request, Redirector $redirect)
     {
 
-        $file = Input::file('image');
-        if(Input::hasFile('image'))
+        $file = Input::file('menu');
+        if(Input::hasFile('menu'))
         {
             $fileName = $file->getClientOriginalName();
-            $path = public_path().'\uploads\\';
+            $path = public_path().'\menus\\';
 
-            $properties = new Property($request->all());
-            $properties->image = $fileName;
+
+            $files= new File($request->all());
+
+           $files->menu = $fileName;
             if($file->move($path, $fileName))
             {
-                //return dd($properties);
-                $properties->save();
-                return $redirect->route('admin.control.index');
+                //return dd($menu);
+                $files->save();
+                return $redirect->route('admin.ameneties.edit');
             }
         }
     }
@@ -103,15 +107,14 @@ class AmenetiesController extends Controller {
      */
     public function edit($id)
     {
-        $properties = Property::findOrFail($id);
 
-        $countries = \DB::table('countries')->lists('country', 'id');
-        $states = \DB::table('states')->lists('state', 'id');
-        $cities= \DB::table('cities')->lists('city', 'id');
-        $services= \DB::table('services')->lists('service', 'id');
-        $property_types= \DB::table('property_types')->lists('property_type', 'id');
-        $users= \DB::table('users')->lists('full_name', 'id');
-        return view('admin.properties.edit',compact('properties', 'countries', 'states', 'cities','services', 'property_types','users'));
+ $user_id = Auth::user()->id;
+        $user_role = User::findOrfail($user_id);
+        $properties = $id;
+
+        return view('admin.properties.ameneties.edit',compact('properties', 'user_role'));
+
+
     }
 
     /**
