@@ -49,7 +49,7 @@
         @endif
 
         @if($user_role->role == 'realstate')
-            <li><a class="dropdown-button" href="#!" data-activates="dropdown5">Residences<i class="material-icons right">arrow_drop_down</i></a></li>
+            <li><a class="dropdown-button" href="#!" data-activates="dropdown5">Residences</a></li>
             <ul id="dropdown5" class="dropdown-content">
                 <li class="divider"></li>
                 <li><a href="{{ route('admin.properties.create') }}">Add residences</a></li>
