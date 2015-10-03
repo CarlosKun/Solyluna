@@ -80,6 +80,48 @@ class AmenetiesController extends Controller {
             }
         }
     }
+    public function storedrinks( FileRequest  $request, Redirector $redirect)
+    {
+
+        $file = Input::file('drinks');
+        if(Input::hasFile('drinks'))
+        {
+            $fileName = $file->getClientOriginalName();
+            $path = public_path().'\drinks\\';
+
+
+            $files= new File($request->all());
+
+            $files->drinks = $fileName;
+            if($file->move($path, $fileName))
+            {
+                //return dd($menu);
+                $files->save();
+                return $redirect->route('admin.ameneties.edit');
+            }
+        }
+    }
+    public function storeactivities( FileRequest  $request, Redirector $redirect)
+    {
+
+        $file = Input::file('activities');
+        if(Input::hasFile('activities'))
+        {
+            $fileName = $file->getClientOriginalName();
+            $path = public_path().'\activities\\';
+
+
+            $files= new File($request->all());
+
+            $files->activities = $fileName;
+            if($file->move($path, $fileName))
+            {
+                //return dd($menu);
+                $files->save();
+                return $redirect->route('admin.ameneties.edit');
+            }
+        }
+    }
 
     /**
      * Display the specified resource.
@@ -105,12 +147,19 @@ class AmenetiesController extends Controller {
      * @param  int  $id
      * @return Response
      */
-    public function edit($id)
+    public function edit(Request $request, $id)
     {
 
  $user_id = Auth::user()->id;
         $user_role = User::findOrfail($user_id);
         $properties = $id;
+        $request = $id;
+
+        $files= new File($request->$id);
+            dd($files);
+
+            $files->save();
+
 
         return view('admin.properties.ameneties.edit',compact('properties', 'user_role'));
 
@@ -138,20 +187,7 @@ class AmenetiesController extends Controller {
      */
     public function destroy($id, Request $request)
     {
-        {
-            $property = Property::findOrFail($id);
-            $property->delete();
-            $message = $property->name.' Fue eliminado de nuestros registros';
-            if($request->ajax()){
-                return response()->json([
-                    'id' => $property->id,
-                    'message' => $message
-                ]);
-            }
 
-            Session::flash('message', $property->id. " Fue eliminado de nuestros registros");
-            return redirect()->route('admin.properties	.index');
-        }
     }
 
 }

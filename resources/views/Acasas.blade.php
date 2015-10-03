@@ -17,51 +17,32 @@
   <!--Aqui va el contenido de la pagina-->
 
  <div class="row">
-     
 
-  
+
+     @foreach($properties as $property)
+         @if($property->service_id == 2)
         <div class="col s12 m12 l3">
             <div class="card small hoverable">
               <div class="card-image"  alt="">
-                  <a href="casaconchaschinas" class="brand-logo"> <img src="images/casaconchaschinas.jpg"  ></a>
-                  <a href="casaconchaschinas" class="brand-logo"><span class="card-title ">Casa Conchas Chinas</span></a>
+                  <a href="casaconchaschinas" class="brand-logo"> <img src="{{ asset('uploads') }}/{{ $property->image }}" height="180px"></a>
+                  <a href="casaconchaschinas" class="brand-logo"><span class="card-title ">{{ $property->name }}</span></a>
               </div>
               <div class="card-content">
-                  <a href="casaconchaschinas" class="brand-logo">  <p class="grey-text text-darken-2">A beautiful life  </p></a>
+                  <a href="casaconchaschinas" class="brand-logo">  <p class="grey-text text-darken-2">{{ $property->description }}  </p></a>
               </div>
               <div class="card-action">
-                <a href="casaconchaschinas">See more...</a>
+                <a href="casa">See more...</a>
               </div>
             </div>
           </div>
-         
+         @endif
+     @endforeach
 
-   
+
   
-        
-        <div class="col s12 m12 l3">
-            <div class="card small hoverable">
-              <div class="card-image">
-                  <a href="residenciaamapa" class="brand-logo">  <img src="images/residenciaamapa.jpg" ></a>
-                  <a href="residenciaamapa" class="brand-logo">   <span class="card-title ">Residencia Amapa</span></a>
-              </div>
-              <div class="card-content">
-                  <a href="residenciaamapa" class="brand-logo">  <p class="grey-text text-darken-2">Perfect for you  </p></a>
-              </div>
-              <div class="card-action">
-                <a href=".html">See more...</a>
-              </div>
-            </div>
-          </div>
-         
-         
-  
-          
 
-         
+ </div>
 
-        </div>
-   
 
 
 

@@ -102,7 +102,7 @@ Care for residents with cognitive impairments
       <br>
       <br>
         <a class="grey-text " href="Acasas"><h5>Find out Independent Living Residences</h5></a>
-         <span><a class="btn" role="button" href="Acasas"><i class="material-icons">trending_flat</i></a></span>
+         <span><a class="btn" role="button" href="casasassisting"><i class="material-icons">trending_flat</i></a></span>
   </div>
   </div>
   </div>

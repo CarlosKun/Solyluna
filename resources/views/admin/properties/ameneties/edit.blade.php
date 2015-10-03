@@ -80,16 +80,23 @@
                 <br>
                 <br>
                 <br>
-                {!! Form::open(['route' => 'admin.ameneties.store', 'method' => 'POST', 'files' => 'true', 'class' => 'col s12' ]) !!}
                 <div class="form-group col l6">
-                    {!! Form::file('drinks', ['class' => 'form-control']) !!}
+                    {!! Form::open(['route' => 'admin.ameneties.update', 'method' => 'POST', 'files' => 'true', 'class' => 'col s12' ]) !!}
+                    {!! Form::hidden('property_id', $properties,  ['class' => 'form-control']) !!}
+                    {!! Form::file('menu', ['class' => 'form-control']) !!}
                     <br>
                     <br>
 
                     <center> <button type="submit" class="btn waves-effect waves-light">Add</button></center>
+
                     {!! Form::close() !!}
                     <br>
                 </div>
+                <br>
+
+
+
+            </div>
                 <br>
 
             </div>
@@ -114,16 +121,23 @@
                 <br>
                 <br>
                 <br>
-                {!! Form::open(['route' => 'admin.ameneties.store', 'method' => 'POST', 'files' => 'true', 'class' => 'col s12' ]) !!}
                 <div class="form-group col l6">
-                    {!! Form::file('activities', ['class' => 'form-control']) !!}
+                    {!! Form::open(['route' => 'admin.ameneties.create', 'method' => 'POST', 'files' => 'true', 'class' => 'col s12' ]) !!}
+                    {!! Form::hidden('property_id', $properties,  ['class' => 'form-control']) !!}
+                    {!! Form::file('menu', ['class' => 'form-control']) !!}
                     <br>
                     <br>
 
                     <center> <button type="submit" class="btn waves-effect waves-light">Add</button></center>
+
                     {!! Form::close() !!}
                     <br>
                 </div>
+                <br>
+
+
+
+            </div>
                 <br>
             </div>
 

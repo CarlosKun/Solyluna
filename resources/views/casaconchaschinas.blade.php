@@ -117,7 +117,11 @@
   <div class="row">
       <div class="col s12 m12 l12 ">
         <div class="card-panel blue">
-        <center><span class="white-text" ><h5>CASA CONCHAS CHINAS</h5>
+            @foreach($properties as $property)
+                @if($property->id == $property->id)
+
+        <center><span class="white-text" ><h5>{{ $property->name }}</h5>
+
           </span></center>
           
         </div>
@@ -343,32 +347,16 @@
  <div class="row">
             <div class="col s12 m8 l11">
         <div class="card-panel">
-          <h5 class="grey-text text-darken-4">CASA CONCHAS CHINAS</h5>
+          <h5 class="grey-text text-darken-4">{{ $property->name }}</h5>
           <div class="divider"></div>
           <p class="grey-text text-darken-2">Aqui va texto donde menciona lo grandioso que es hospedarse en sol y luna y todos los servicios que ofrecemos ademas de las actividades a realizar, poder hacer videollamadas, llevar un control de los huespedes, etc... Aqui va texto donde menciona lo grandioso que es hospedarse en sol y luna y todos los servicios que ofrecemos ademas de las actividades a realizar, poder hacer videollamadas, llevar un control de los huespedes, etc..
           </p>
-          <blockquote>
-            <b class="grey-text text-darken-4">¿Podemos ayudarle a planear su estadia con nosotros?</b>
-          </blockquote>
-          <div class="row">
-            <div class="col s12 m8 l6">
-              <li><a href="#">Reuniones y eventos</a></li>
-            </div>
-            <div class="col s12 m8 l6">
-              <li><a href="#">Indicaciones y maps</a></li>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col s12 m8 l6">
-              <li><a href="#">Gimnasio</a></li>
-            </div>
-            <div class="col s12 m8 l6">
-              <li><a href="#">Familias</a></li>
-          </div>
+
+
         </div>
         </div>
         </div>
-        </div>
+
         <div class="row">
             <div class="col s12 m8 l11">
         <ul class="collection hoverable">
@@ -459,6 +447,8 @@
       </div>
         </div><!-- End Row -->
       </div>
+ @endif
+ @endforeach
 
 @stop
 

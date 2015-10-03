@@ -11,7 +11,10 @@
 |
 */
 
+
 	Route::get('/', 'WelcomeController@index');
+Route::get('casa', 'VistasController@index');
+Route::get('casasassisting', 'VistasController@show');
 
 	Route::get('home', 'HomeController@index');
 
