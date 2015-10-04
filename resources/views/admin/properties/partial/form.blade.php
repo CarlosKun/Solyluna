@@ -44,6 +44,10 @@
         {!! Form::file('image', ['class' => 'form-control']) !!}
     </div>
     <div class="form-group">
-        {!! Form::label('description', 'Description') !!}
+        {!! Form::label('slogan', 'Short description') !!}
+        <textarea name="slogan" class="form-control" rows="3"></textarea>
+    </div>
+    <div class="form-group">
+        {!! Form::label('description', 'Long description') !!}
         <textarea name="description" class="form-control" rows="3"></textarea>
     </div>

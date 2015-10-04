@@ -19,7 +19,8 @@ class CreatePropertiesTable extends Migration {
 			$table->date('available');
 			$table->boolean('status');
 			$table->integer('num_bedrooms');
-			$table->mediumText('description');
+			$table->string('slogan',30);
+			$table->longText('description');
 			$table->string('image');
 
 			$table->integer('service_id')->unsigned();

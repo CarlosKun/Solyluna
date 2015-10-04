@@ -20,8 +20,6 @@ class BedRoomController extends Controller {
 	 */
 	public function index($id)
 	{
-		$user_id = Auth::user()->id;
-		$user_role = User::findOrfail($user_id);
 		$properties = Bedroom::select('id', 'bedroom_asigned', 'status', 'beds', 'size_metrics', 'description', 'image', 'property_id')
 			->with('Property')
 			->where('property_id', '=', $id)
@@ -30,7 +28,7 @@ class BedRoomController extends Controller {
 			->with('Property')
 			->where('property_id', '=', $id)
 			->count();
-		return view('admin.properties.bedrooms.show', compact('properties', 'count', 'user_role'));
+		return view('admin.properties.bedrooms.show', compact('properties', 'count'));
 		//dd($properties);
 	}
 

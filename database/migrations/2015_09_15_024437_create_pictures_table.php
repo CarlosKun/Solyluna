@@ -15,7 +15,15 @@ class CreatePicturesTable extends Migration {
 		Schema::create('pictures', function(Blueprint $table)
 		{
 			$table->increments('id');
-			$table->string('route');
+			$table->string('image1');
+			$table->string('image2');
+			$table->string('image3');
+			$table->string('image4');
+			$table->string('image5');
+			$table->string('image6');
+			$table->string('image7');
+			$table->string('image8');
+			$table->string('image9');
 			$table->integer('property_id')->unsigned();
 			$table->foreign('property_id')
 				->references('id')

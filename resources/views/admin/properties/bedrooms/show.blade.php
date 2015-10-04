@@ -1,36 +1,26 @@
-@extends('admin.control.admin')
-
-@section('logo')
-    <a href="#" class="brand-logo center">Bedrooms</a>
-@endsection
-
-@section('add')
-    <div class="row">
-        @foreach($properties as $house)
-            <div class="col s12 m4 l3">
-                <div class="card">
-                    <div class="card-image">
-                        <img src="/uploads/{{ $house->image }}" height="180px">
-                        <span class="card-title">{{ $house->bedroom_asigned }}</span>
-                    </div>
-                    <div class="card-content">
-                        @if($house->status == 0)
-                            <li><p class="red-text">Not available</p></li>
+@extends('app')
+@section('content')
+    <div class="container">
+        <div class="row">
+            @foreach($properties as $house)
+            <div class="col-sm-6 col-md-4">
+                <div class="thumbnail">
+                    <img src="{{ asset('uploads') }}/{{ $house->image }}" alt="..." width="" height="">
+                    <div class="caption">
+                        <h3>{{ $house->bedroom_asigned }}</h3>
+                        @if($house->status == 1)
+                            <p class="alert-success">Available</p>
                         @else
-                            <li><p class="green-text accent-4">Available</p></li>
+                            <p class="alert-danger">Not available</p>
                         @endif
-                        <li><b>Beds: </b> {{ $house->beds }}</li>
-                        <li><b>Measures: </b> {{ $house->size_metrics }}</li>
+                        <p>Beds: {{ $house->beds }}</p>
+                        <p>size: {{ $house->size_metrics }}</p>
                         <p>{{ $house->description }}</p>
-                    </div>
-                    <div class="card-action">
-                        <a href="#" class="right-align"><i class="material-icons">perm_media</i></a>
-                        <a href="{{ route('admin.properties.bedrooms.index',$house) }}" class="right-align"><i class="material-icons">visibility</i></a>
-                        <a href="{{ route('admin.properties.bedrooms.create',$house) }}" class="right-align"><i class="material-icons">note_add</i></a>
-                        <a href="{{route('admin.properties.edit',$house)}}" class="right-align"><i class="material-icons">settings</i></a>
+                        <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
                     </div>
                 </div>
             </div>
-        @endforeach
+            @endforeach
+        </div>
     </div>
 @endsection

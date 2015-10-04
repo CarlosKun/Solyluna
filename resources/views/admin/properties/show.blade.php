@@ -10,7 +10,7 @@
         <div class="col s12 m4 l4">
             <div class="card">
                 <div class="card-image">
-                    <img src="/uploads/{{ $property->image }}" height="180px">
+                    <img src="{{ asset('uploads') }}/{{ $property->image }}" height="180px">
                     <span class="card-title">{{ $property->name }}</span>
                 </div>
                 <div class="card-content">
@@ -26,9 +26,9 @@
                 </div>
                 <div class="card-action">
                     <a href="#" class="right-align"><i class="material-icons">perm_media</i></a>
-                    <a href="{{ route('admin.properties.bedrooms.index',$property) }}" class="right-align"><i class="material-icons">store</i></a>
-                    <a href="{{route('admin.properties.edit',$property)}}" class="right-align"><i class="material-icons">label</i></a>
-                    <a href="{{ route('admin.properties.bedrooms.create',$property) }}" class="right-align"><i class="material-icons">add_alert</i></a>
+                    <a href="{{ route('admin.properties.bedrooms.index',$property) }}" class="right-align"><i class="material-icons">visibility</i></a>
+                    <a href="{{ route('admin.properties.bedrooms.create',$property) }}" class="right-align"><i class="material-icons">queue</i></a>
+                    <a href="{{ route('admin.properties.characteristic.index',$property) }}" class="right-align"><i class="material-icons">label</i></a>
                     <a href="{{route('admin.properties.edit',$property)}}" class="right-align"><i class="material-icons">settings</i></a>
                 </div>
             </div>

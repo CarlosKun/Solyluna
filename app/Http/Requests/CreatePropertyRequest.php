@@ -27,6 +27,7 @@ class CreatePropertyRequest extends Request {
 			'status' => 'required',
 			'num_bedrooms' => 'required',
 			'description' => 'required',
+			'slogan' => 'required',
 			'service_id' => 'required',
 			'country_id' => 'required',
 			'state_id' => 'required',

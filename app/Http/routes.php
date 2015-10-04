@@ -11,7 +11,10 @@
 |
 */
 
+
 	Route::get('/', 'WelcomeController@index');
+Route::get('casa', 'VistasController@index');
+Route::get('casasassisting', 'VistasController@show');
 
 	Route::get('home', 'HomeController@index');
 
@@ -132,4 +135,10 @@ Route::get('formulario', [
 
 	Route::group(['prefix' => 'admin', 'namespace' => 'Administrator'], function (){
 		Route::resource('control', 'AdminController');
+	});
+	Route::group(['prefix' => 'admin', 'namespace' => 'ameneties'], function (){
+		Route::resource('ameneties', 'AmenetiesController');
+	});
+		Route::group(['prefix' => 'admin', 'namespace' => 'Characteristic'], function (){
+		Route::resource('properties.characteristic', 'CharacteristicsController');
 	});
