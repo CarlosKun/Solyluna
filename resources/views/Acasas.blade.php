@@ -30,8 +30,9 @@
               <div class="card-content">
                   <a href="casaconchaschinas" class="brand-logo">  <p class="grey-text text-darken-2">{{ $property->description }}  </p></a>
               </div>
+
               <div class="card-action">
-                <a href="casa">See more...</a>
+                <a href="{{route ('vistas.vistapropiedades',$property->property_id)}}">See more...</a>
               </div>
             </div>
           </div>
