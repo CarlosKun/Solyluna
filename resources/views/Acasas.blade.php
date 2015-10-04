@@ -29,6 +29,7 @@
               </div>
               <div class="card-content">
                   <a href="casaconchaschinas" class="brand-logo">  <p class="grey-text text-darken-2">{{ $property->description }}  </p></a>
+<<<<<<< HEAD
               </div>
 
               <div class="card-action">
@@ -40,6 +41,18 @@
      @endforeach
 
 
+=======
+              </div>
+              <div class="card-action">
+                <a href="casa">See more...</a>
+              </div>
+            </div>
+          </div>
+         @endif
+     @endforeach
+
+
+>>>>>>> origin/master
   
 
  </div>

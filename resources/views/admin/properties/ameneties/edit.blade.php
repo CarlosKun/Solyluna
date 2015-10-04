@@ -79,10 +79,16 @@
                 <br>
                 <br>
                 <div class="form-group col l6">
+<<<<<<< HEAD
                     {!! Form::open(['route' => 'admin.ameneties.update', 'method' => 'PUT', 'files' => 'true', 'class' => 'col s12' ]) !!}
                     {!! Form::hidden('property_id', $properties,  ['class' => 'form-control']) !!}
                     {!! Form::hidden('labeldrinks', 'drinks',  ['class' => 'form-control']) !!}
                     {!! Form::file('drinks', ['class' => 'form-control']) !!}
+=======
+                    {!! Form::open(['route' => 'admin.ameneties.update', 'method' => 'POST', 'files' => 'true', 'class' => 'col s12' ]) !!}
+                    {!! Form::hidden('property_id', $properties,  ['class' => 'form-control']) !!}
+                    {!! Form::file('menu', ['class' => 'form-control']) !!}
+>>>>>>> origin/master
                     <br>
                     <br>
 
@@ -121,10 +127,16 @@
                 <br>
                 <br>
                 <div class="form-group col l6">
+<<<<<<< HEAD
                     {!! Form::open(['route' => 'admin.ameneties.update', 'method' => 'PUT', 'files' => 'true', 'class' => 'col s12' ]) !!}
                     {!! Form::hidden('property_id', $properties,  ['class' => 'form-control']) !!}
                     {!! Form::hidden('labelactivities', 'activities',  ['class' => 'form-control']) !!}
                     {!! Form::file('activities', ['class' => 'form-control']) !!}
+=======
+                    {!! Form::open(['route' => 'admin.ameneties.create', 'method' => 'POST', 'files' => 'true', 'class' => 'col s12' ]) !!}
+                    {!! Form::hidden('property_id', $properties,  ['class' => 'form-control']) !!}
+                    {!! Form::file('menu', ['class' => 'form-control']) !!}
+>>>>>>> origin/master
                     <br>
                     <br>
 

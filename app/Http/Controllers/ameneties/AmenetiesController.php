@@ -89,6 +89,42 @@ class AmenetiesController extends Controller {
             $fileName = $file->getClientOriginalName();
             $path = public_path().'\drinks\\';
 
+<<<<<<< HEAD
+=======
+
+            $files= new File($request->all());
+
+            $files->drinks = $fileName;
+            if($file->move($path, $fileName))
+            {
+                //return dd($menu);
+                $files->save();
+                return $redirect->route('admin.ameneties.edit');
+            }
+        }
+    }
+    public function storeactivities( FileRequest  $request, Redirector $redirect)
+    {
+
+        $file = Input::file('activities');
+        if(Input::hasFile('activities'))
+        {
+            $fileName = $file->getClientOriginalName();
+            $path = public_path().'\activities\\';
+
+
+            $files= new File($request->all());
+
+            $files->activities = $fileName;
+            if($file->move($path, $fileName))
+            {
+                //return dd($menu);
+                $files->save();
+                return $redirect->route('admin.ameneties.edit');
+            }
+        }
+    }
+>>>>>>> origin/master
 
             $files= new File($request->all());
 
@@ -131,6 +167,13 @@ class AmenetiesController extends Controller {
         $user_role = User::findOrfail($user_id);
 
         $properties = $id;
+        $request = $id;
+
+        $files= new File($request->$id);
+            dd($files);
+
+            $files->save();
+
 
         $files = File::select('id')
             ->where('property_id', '=', $id)

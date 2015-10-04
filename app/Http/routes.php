@@ -13,10 +13,15 @@
 
 
 	Route::get('/', 'WelcomeController@index');
+<<<<<<< HEAD
 Route::get('vistapropiedades', 'VistasController@vistapropiedades');
 Route::get('casasassisting', 'VistasController@asissting');
 Route::get('casasindependent', 'VistasController@index');
 
+=======
+Route::get('casa', 'VistasController@index');
+Route::get('casasassisting', 'VistasController@show');
+>>>>>>> origin/master
 
 	Route::get('home', 'HomeController@index');
 

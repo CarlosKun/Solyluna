@@ -13,7 +13,11 @@ class VistasController extends Controller {
 	 *
 	 * @return Response
 	 */
+<<<<<<< HEAD
 	public function vistapropiedades()
+=======
+	public function index()
+>>>>>>> origin/master
 	{
 		$properties = Property::select('id', 'name', 'image', 'status', 'num_bedrooms', 'description', 'country_id', 'service_id', 'state_id', 'city_id', 'property_type_id', 'user_id')
 			->with('country')->with('service')->with('state')->with('city')->with('property_type')->with('user')
@@ -25,7 +29,11 @@ class VistasController extends Controller {
 
 
 
+<<<<<<< HEAD
 		return view('vistapropiedades',compact('properties','service','state', 'city', 'property_type', 'user', 'user_role'));
+=======
+		return view('casaconchaschinas',compact('properties','service','state', 'city', 'property_type', 'user', 'user_role'));
+>>>>>>> origin/master
 	}
 
 	/**
@@ -54,7 +62,11 @@ class VistasController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
+<<<<<<< HEAD
 	public function asissting()
+=======
+	public function show()
+>>>>>>> origin/master
 	{
 		$properties = Property::select('id', 'name', 'image', 'status', 'num_bedrooms', 'description', 'country_id', 'service_id', 'state_id', 'city_id', 'property_type_id', 'user_id')
 			->with('country')->with('service')->with('state')->with('city')->with('property_type')->with('user')
